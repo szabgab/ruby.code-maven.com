@@ -1,6 +1,5 @@
 [book]
 authors = ["Gabor Szabo"]
 language = "en"
-multilingual = false
 src = "src"
 title = "Ruby Maven"
