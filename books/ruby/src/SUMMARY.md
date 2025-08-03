@@ -27,7 +27,7 @@
     - [How to write to a file in Ruby](./how-to-write-to-file-in-ruby.md)
     - [Logical operators in Ruby (and, or, not), (&&, ||, !)](./logical-operators-in-ruby.md)
 
-## Slides
+# Slides
 
 - [Introduction to Ruby](./ruby-introduction/index.md)
   - [Where to get Ruby](./ruby-introduction/where-to-get-ruby.md)
