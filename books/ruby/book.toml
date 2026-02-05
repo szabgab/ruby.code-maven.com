@@ -8,7 +8,7 @@ title = "Ruby Maven"
 # Add github icon to the menu
 [output.html]
 git-repository-url = "https://github.com/szabgab/slides"
-git-repository-icon = "fa-github"
+git-repository-icon = "fas-code-fork"
 edit-url-template = "https://github.com/szabgab/slides/edit/main/ruby/{path}"
 
 [output.markdown]
