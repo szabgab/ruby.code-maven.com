@@ -1,0 +1,38 @@
+url: https://ruby.code-maven.com
+site_name: Ruby Maven
+repo: https://github.com/szabgab/ruby.code-maven.com
+branch: main
+link_to_source: true
+
+footer: ""
+
+tags:
+  title: Tags
+  description: Articles about Ruby
+
+archive:
+  title: Archive
+  description: Archive of this site
+
+from:
+  name: Foo Bar
+  email: foo@bar.com
+
+show_related: true
+related_pages_title: Related Pages
+
+authors:
+  - name: Gabor Szabo
+    nickname: szabgab
+    picture: szabgab.png
+
+
+navbar:
+  start:
+    - path: /
+      title: Home
+  end:
+    - path: /archive
+      title: Archive
+
+

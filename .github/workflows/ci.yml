@@ -1,10 +1,11 @@
-name: Deploy GitHub Pages
+name: CI
+
 on:
   push:
     branches: ["main"]
+  pull_request:
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
@@ -16,6 +17,7 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+
 jobs:
   # Build job
   build:
@@ -24,7 +26,19 @@ jobs:
       - name: Checkout site source
         uses: actions/checkout@v7
 
-      - name: Checkout slides (for the mdbook.pl)
+      - name: Download processor
+        run: |
+          wget https://ssg.code-maven.com/code-maven
+          chmod +x code-maven
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v6
+
+      - name: Generate pages
+        run: |
+          ./code-maven web
+
+      - name: Checkout slides repository to get the mdbook.pl
         uses: actions/checkout@v7
         with:
           repository: 'szabgab/slides'
@@ -33,9 +47,9 @@ jobs:
 
       - name: Download mdBook
         env:
-          MDBOOK_VERSION: 0.5.2
+          MDBOOK_VERSION: 0.5.4
           EMBEDIFY_VERSION: 0.3.2
-          ALERTS_VERSION: 0.7.0
+          ALERTS_VERSION: 0.8.0
         run: |
           set -x
           wget https://github.com/rust-lang/mdBook/releases/download/v${MDBOOK_VERSION}/mdbook-v${MDBOOK_VERSION}-x86_64-unknown-linux-gnu.tar.gz
@@ -52,14 +66,14 @@ jobs:
       - name: Generate mdbooks
         run: |
           export PATH=$PATH:$(pwd)
+          #./books.sh
           perl slides/mdbooks.pl
-          ls -l
-          ls -l html
+          mv html/* _site/
+
+
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
-        with:
-          path: html/ruby
 
   # Deployment job
   deploy:
