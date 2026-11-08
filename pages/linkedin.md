@@ -8,7 +8,7 @@ tags:
     - LinkedIn
 ---
 
-I maintain the [Ruby Maven on LinkedIn](https://www.linkedin.com/showcase/ruby-maven/home/). If you have an account on LinkedIn, you are invited to follow the page there.
+I maintain the [Ruby Maven on LinkedIn](https://www.linkedin.com/showcase/ruby-maven/posts/?viewAsMember=true). If you have an account on LinkedIn, you are invited to follow the page there.
 
 
 
